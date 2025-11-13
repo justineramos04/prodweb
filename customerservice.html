@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Service | Eco Mug</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f4f7f3;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #f4f7f3;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+    }
+
+    .logo h1 {
+      font-size: 22px;
+      color: #2f572c;
+    }
+
+    .logo span {
+      font-size: 10px;
+      color: #777;
+      letter-spacing: 2px;
+    }
+
+    /* Nav icons */
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 20px;
+      color: #2f572c;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .nav-icons i,
+    .nav-icons a i {
+      color: #2f572c;
+      transition: color 0.3s ease;
+    }
+
+    .nav-icons i:hover,
+    .nav-icons a i:hover {
+      color: #3b6e38;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      display: none;
+      flex-direction: column;
+      width: 180px;
+      z-index: 200;
+    }
+
+    .dropdown-menu a {
+      text-decoration: none;
+      color: #2f572c;
+      padding: 12px 20px;
+      border-bottom: 1px solid #eee;
+      font-size: 15px;
+      transition: background 0.3s;
+    }
+
+    .dropdown-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f2f7f2;
+    }
+
+    .dropdown-menu.active {
+      display: flex;
+    }
+
+    /* Customer Service Page */
+    .service-container {
+      max-width: 800px;
+      background: white;
+      margin: 60px auto;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 40px 50px;
+    }
+
+    .service-container h2 {
+      color: #2f572c;
+      margin-bottom: 20px;
+      font-size: 28px;
+      text-align: center;
+    }
+
+    .service-container h3 {
+      color: #2f572c;
+      margin: 25px 0 15px;
+      font-size: 22px;
+    }
+
+    .service-container p {
+      color: #555;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .support-info {
+      background-color: #f4f7f3;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+    }
+
+    .support-info p {
+      margin: 8px 0;
+    }
+
+    .support-info i {
+      color: #2f572c;
+      margin-right: 10px;
+      width: 20px;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      margin-top: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      color: #2f572c;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .form-group textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background-color: #2f572c;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: background 0.3s;
+      display: block;
+      margin: 20px auto 0;
+    }
+
+    .submit-btn:hover {
+      background-color: #3b6e38;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 15px;
+      text-decoration: none;
+      color: #2f572c;
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .success-message {
+      text-align: center;
+      color: #2f572c;
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #f0f7f0;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .cart-container {
+      position: relative;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background-color: #e74c3c;
+      color: white;
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 50%;
+      font-weight: 600;
+    }
+    
+    .dropdown-menu a.logout {
+      color: #e74c3c;
+      font-weight: 600;
+    }
+
+    .dropdown-menu a.logout:hover {
+      background-color: #fdeaea;
+      color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <a href="frontpage.html">
+        <img src="2337b154-a3ac-486d-ab9f-7a3d5c61fff1.jpg" alt="Eco Mug Logo">
+      </a>
+      <div>
+        <h1>ECO MUG</h1>
+        <span>READY, SIP, N' GO!</span>
+      </div>
+    </div>
+    <div class="nav-icons">
+      <div class="cart-container">
+        <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
+        <div class="cart-badge" id="cart-count">0</div>
+      </div>
+      <a href="profile.html" class="profile-link">
+        <i class="fa-solid fa-user"></i>
+      </a>
+      <i class="fa-solid fa-bars" id="menu-toggle"></i>
+
+      <!-- Dropdown -->
+      <div class="dropdown-menu" id="dropdownMenu">
+        <a href="frontpage.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="shop.html">Shop</a>
+        <a href="fqa.html">F.A.Q</a>
+        <a href="nearest.html">Find Nearest Kiosk</a>
+        <a href="warranty.html">Warranty & Exchange/Refund</a>
+        <a href="customer-service.html" class="active">Customer Service</a>
+        <a href="index.html" class="logout" onclick="logout()">Log out</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CUSTOMER SERVICE CONTENT -->
+  <div class="service-container">
+    <h2>Customer Service</h2>
+    
+    <div class="support-info">
+      <h3>Customer Support</h3>
+      <p>At Eco Mug, we're committed to providing exceptional customer service. Whether you have questions about our products, need assistance with an order, or have any concerns, our dedicated support team is here to help.</p>
+      <p>We typically respond to all inquiries within 24 hours during business days.</p>
+    </div>
+
+    <h3>Contact Us</h3>
+    <div class="support-info">
+      <p><i class="fa-solid fa-envelope"></i> ecomugco@gmail.com</p>
+      <p><i class="fa-solid fa-phone"></i> +63 9188762434</p>
+      <p><i class="fa-solid fa-clock"></i> Monday - Friday: 9:00 AM - 6:00 PM</p>
+      <p><i class="fa-solid fa-location-dot"></i> 80 Asuncion Diaz, Abella Road, San Jose Del Monte City, Central Luzon</p>
+    </div>
+
+    <div class="contact-form">
+      <h3>Send Us a Message</h3>
+      <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+      
+      <form id="supportForm">
+        <div class="form-group">
+          <label for="fullName">Full Name *</label>
+          <input type="text" id="fullName" placeholder="Enter your full name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="Enter your phone number">
+        </div>
+        
+        <div class="form-group">
+          <label for="concernType">Type of Concern *</label>
+          <select id="concernType" required>
+            <option value="">Select an option</option>
+            <option value="product">Product Inquiry</option>
+            <option value="order">Order Issue</option>
+            <option value="shipping">Shipping & Delivery</option>
+            <option value="warranty">Warranty Claim</option>
+            <option value="refund">Refund Request</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Your Message *</label>
+          <textarea id="message" placeholder="Please describe your concern in detail..." required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">Submit Message</button>
+      </form>
+      
+      <div id="successMessage" class="success-message">
+        Thank you for contacting us! We've received your message and will respond within 24 hours.
+      </div>
+    </div>
+    
+    <a href="frontpage.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+  </div>
+
+  <script>
+    // DROPDOWN MENU
+    const menuToggle = document.getElementById('menu-toggle');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    menuToggle.addEventListener('click', () => dropdownMenu.classList.toggle('active'));
+    document.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !dropdownMenu.contains(e.target))
+        dropdownMenu.classList.remove('active');
+    });
+
+    // CART ICON FUNCTION
+    const cartIcon = document.getElementById("cart-icon");
+    if (cartIcon) cartIcon.addEventListener("click", () => window.location.href = "cart.html");
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem("cartDetails")) || [];
+      const uniqueItems = cart.length;
+      const cartCount = document.getElementById("cart-count");
+      if (cartCount) cartCount.textContent = uniqueItems;
+    }
+    updateCartCount();
+
+    // SUPPORT FORM HANDLER
+    document.getElementById("supportForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      // Get form values
+      const fullName = document.getElementById("fullName").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const concernType = document.getElementById("concernType").value;
+      const message = document.getElementById("message").value;
+      
+      // In a real application, you would send this data to a server
+      // For now, we'll just show a success message
+      
+      // Save support request to localStorage (for demo purposes)
+      const supportRequests = JSON.parse(localStorage.getItem("supportRequests")) || [];
+      const newRequest = {
+        fullName,
+        email,
+        phone,
+        concernType,
+        message,
+        date: new Date().toISOString(),
+        status: "pending"
+      };
+      supportRequests.push(newRequest);
+      localStorage.setItem("supportRequests", JSON.stringify(supportRequests));
+      
+      // Show success message
+      document.getElementById("successMessage").style.display = "block";
+      
+      // Reset form
+      document.getElementById("supportForm").reset();
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        document.getElementById("successMessage").style.display = "none";
+      }, 5000);
+    });
+
+    // LOGOUT FUNCTION
+    function logout() {
+      localStorage.removeItem("currentUser");
+      localStorage.removeItem("cartDetails");
+      localStorage.setItem("logoutMessage", "You have been logged out successfully.");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
