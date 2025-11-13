@@ -65,22 +65,21 @@
     }
 
     /* Soft green icons styling */
-.nav-icons i,
-.nav-icons a i {
-  color: #2f572c; /* Soft eco green */
-  transition: color 0.3s ease;
-}
+    .nav-icons i,
+    .nav-icons a i {
+      color: #2f572c; /* Soft eco green */
+      transition: color 0.3s ease;
+    }
 
-.nav-icons i:hover,
-.nav-icons a i:hover {
-  color: #3b6e38; /* Brighter green on hover */
-}
+    .nav-icons i:hover,
+    .nav-icons a i:hover {
+      color: #3b6e38; /* Brighter green on hover */
+    }
 
-/* Highlight active profile icon */
-.profile-link.active i {
-  color: #3b6e38;
-}
-
+    /* Highlight active profile icon */
+    .profile-link.active i {
+      color: #3b6e38;
+    }
 
     .dropdown-menu {
       position: absolute;
@@ -141,10 +140,10 @@
       margin: auto;
     }
 
-    iframe {
+    .map-image {
       width: 100%;
       height: 100%;
-      border: none;
+      object-fit: cover;
     }
 
     footer {
@@ -168,15 +167,14 @@
       font-weight: 600;
     }
     .dropdown-menu a.logout {
-  color: #e74c3c; /* Red text color */
-  font-weight: 600;
-}
+      color: #e74c3c; /* Red text color */
+      font-weight: 600;
+    }
 
-.dropdown-menu a.logout:hover {
-  background-color: #fdeaea; /* Light red background on hover */
-  color: #c0392b;
-}
-
+    .dropdown-menu a.logout:hover {
+      background-color: #fdeaea; /* Light red background on hover */
+      color: #c0392b;
+    }
   </style>
 </head>
 
@@ -193,8 +191,8 @@
         <div class="cart-badge" id="cart-count">0</div>
       </div>
       <a href="profile.html" class="profile-link">
-  <i class="fa-solid fa-user"></i>
-</a>
+        <i class="fa-solid fa-user"></i>
+      </a>
 
       <i class="fa-solid fa-bars" id="menu-toggle"></i>
 
@@ -206,7 +204,6 @@
         <a href="nearest.html">Find Nearest Kiosk</a>
         <a href="warranty.html">Warranty & Exchange/Refund</a>
         <a href="index.html" class="logout" onclick="logout()">Log out</a>
-
       </div>
     </div>
   </header>
@@ -215,13 +212,8 @@
     <h2>Find Our Nearest Kiosk</h2>
 
     <div class="map-container">
-      <!-- Google Map with exact location pin and label -->
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1202.123456789!2d121.04527!3d14.81389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9c0abcdef01%3A0xabcdef0123456789!2sEco%20Mug%20Kiosk!5e0!3m2!1sen!2sph!4v1696935445298!5m2!1sen!2sph"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+      <!-- Replaced Google Maps with locationmap.jpg -->
+      <img src="locationmap.jpg" alt="Eco Mug Kiosk Locations" class="map-image">
     </div>
 
     <footer>
@@ -261,14 +253,12 @@
     updateCartCount();
   </script>
   <script>
-  function logout() {
-    localStorage.removeItem("currentUser"); // remove logged user
-    localStorage.removeItem("cartDetails"); // optional: clear cart
-    localStorage.setItem("logoutMessage", "You have been logged out successfully."); // message shown when redirected
-    window.location.href = "index.html"; // redirect to login page
-  }
-</script>
-
+    function logout() {
+      localStorage.removeItem("currentUser"); // remove logged user
+      localStorage.removeItem("cartDetails"); // optional: clear cart
+      localStorage.setItem("logoutMessage", "You have been logged out successfully."); // message shown when redirected
+      window.location.href = "index.html"; // redirect to login page
+    }
+  </script>
 </body>
 </html>
-
