@@ -30,10 +30,25 @@
       max-width: 400px;
     }
 
-    h1 {
-      color: #2f572c;
-      text-align: center;
+    /* Logo styling - fixed */
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 30px;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 1.2em; /* Same height as the font */
+      width: auto;
+      display: block;
+    }
+
+    .logo h1 {
+      color: #2f572c;
+      margin: 0;
+      font-size: 1.8rem;
     }
 
     .input-group {
@@ -122,10 +137,11 @@
 
 <body>
   <div class="login-container">
+    <!-- Fixed logo section -->
     <div class="logo">
       <img src="2337b154-a3ac-486d-ab9f-7a3d5c61fff1.jpg" alt="Eco Mug Logo">
       <h1>Eco Mug</h1>
-    <div>
+    </div> <!-- Fixed closing div -->
 
     <div id="message" class="message"></div>
     <div id="error" class="error"></div>
@@ -193,5 +209,3 @@
   </script>
 </body>
 </html>
-
-
