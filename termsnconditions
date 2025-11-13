@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms and Conditions | Eco Mug</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f4f7f3;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #f4f7f3;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+    }
+
+    .logo h1 {
+      font-size: 22px;
+      color: #2f572c;
+    }
+
+    .logo span {
+      font-size: 10px;
+      color: #777;
+      letter-spacing: 2px;
+    }
+
+    /* Nav icons */
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 20px;
+      color: #2f572c;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .nav-icons i,
+    .nav-icons a i {
+      color: #2f572c;
+      transition: color 0.3s ease;
+    }
+
+    .nav-icons i:hover,
+    .nav-icons a i:hover {
+      color: #3b6e38;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      display: none;
+      flex-direction: column;
+      width: 180px;
+      z-index: 200;
+    }
+
+    .dropdown-menu a {
+      text-decoration: none;
+      color: #2f572c;
+      padding: 12px 20px;
+      border-bottom: 1px solid #eee;
+      font-size: 15px;
+      transition: background 0.3s;
+    }
+
+    .dropdown-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f2f7f2;
+    }
+
+    .dropdown-menu.active {
+      display: flex;
+    }
+
+    /* Terms and Conditions Page */
+    .terms-container {
+      max-width: 900px;
+      background: white;
+      margin: 60px auto;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 40px 50px;
+    }
+
+    .terms-container h1 {
+      color: #2f572c;
+      margin-bottom: 30px;
+      font-size: 32px;
+      text-align: center;
+    }
+
+    .terms-container h2 {
+      color: #2f572c;
+      margin: 30px 0 15px;
+      font-size: 22px;
+      border-bottom: 2px solid #f0f7f0;
+      padding-bottom: 8px;
+    }
+
+    .terms-container h3 {
+      color: #2f572c;
+      margin: 20px 0 10px;
+      font-size: 18px;
+    }
+
+    .terms-container p {
+      color: #555;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .terms-container ul {
+      margin: 10px 0 20px 30px;
+    }
+
+    .terms-container li {
+      color: #555;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .highlight-box {
+      background-color: #f4f7f3;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 4px solid #2f572c;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #2f572c;
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .cart-container {
+      position: relative;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background-color: #e74c3c;
+      color: white;
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 50%;
+      font-weight: 600;
+    }
+    
+    .dropdown-menu a.logout {
+      color: #e74c3c;
+      font-weight: 600;
+    }
+
+    .dropdown-menu a.logout:hover {
+      background-color: #fdeaea;
+      color: #c0392b;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <a href="frontpage.html">
+        <img src="2337b154-a3ac-486d-ab9f-7a3d5c61fff1.jpg" alt="Eco Mug Logo">
+      </a>
+      <div>
+        <h1>ECO MUG</h1>
+        <span>READY, SIP, N' GO!</span>
+      </div>
+    </div>
+    <div class="nav-icons">
+      <div class="cart-container">
+        <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
+        <div class="cart-badge" id="cart-count">0</div>
+      </div>
+      <a href="profile.html" class="profile-link">
+        <i class="fa-solid fa-user"></i>
+      </a>
+      <i class="fa-solid fa-bars" id="menu-toggle"></i>
+
+      <!-- Dropdown -->
+      <div class="dropdown-menu" id="dropdownMenu">
+        <a href="frontpage.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="shop.html">Shop</a>
+        <a href="fqa.html">F.A.Q</a>
+        <a href="nearest.html">Find Nearest Kiosk</a>
+        <a href="warranty.html">Warranty & Exchange/Refund</a>
+        <a href="customer-service.html">Customer Service</a>
+        <a href="index.html" class="logout" onclick="logout()">Log out</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- TERMS AND CONDITIONS CONTENT -->
+  <div class="terms-container">
+    <h1>Terms and Conditions</h1>
+    
+    <div class="highlight-box">
+      <p><strong>Last Updated: January 2025</strong></p>
+      <p>Please read these Terms and Conditions carefully before using our website and purchasing our products.</p>
+    </div>
+
+    <h2>1. Acceptance of Terms</h2>
+    <p>By accessing and using the Eco Mug website, you accept and agree to be bound by the terms and provision of this agreement.</p>
+
+    <h2>2. Products and Services</h2>
+    <p>Eco Mug offers sustainable drinkware products including mugs, tumblers, and accessories. All products are subject to availability.</p>
+    
+    <h3>2.1 Product Descriptions</h3>
+    <p>We strive to display accurate colors and images of our products. However, actual colors may vary due to monitor settings.</p>
+    
+    <h3>2.2 Pricing</h3>
+    <p>All prices are in Philippine Peso (₱) and are subject to change without notice.</p>
+
+    <h2>3. Orders and Payment</h2>
+    <p>By placing an order through our website, you warrant that you are legally capable of entering into binding contracts.</p>
+    
+    <h3>3.1 Order Confirmation</h3>
+    <p>Your order is confirmed once you receive an order confirmation email from us.</p>
+    
+    <h3>3.2 Payment Methods</h3>
+    <p>We accept various payment methods including credit/debit cards, GCash, and bank transfers.</p>
+
+    <h2>4. Shipping and Delivery</h2>
+    <p>We ship throughout the Philippines. Delivery times may vary depending on your location.</p>
+    
+    <h3>4.1 Shipping Costs</h3>
+    <p>Shipping costs are calculated at checkout based on your location and order size.</p>
+    
+    <h3>4.2 Delivery Times</h3>
+    <p>Standard delivery takes 3-7 business days. Express delivery options are available for Metro Manila areas.</p>
+
+    <h2>5. Returns and Refunds</h2>
+    <p>We accept returns within 7 days of delivery for defective or damaged products.</p>
+    
+    <h3>5.1 Return Conditions</h3>
+    <ul>
+      <li>Product must be in original condition</li>
+      <li>Original packaging must be intact</li>
+      <li>Proof of purchase required</li>
+    </ul>
+    
+    <h3>5.2 Refund Process</h3>
+    <p>Refunds will be processed within 14 business days after we receive the returned item.</p>
+
+    <h2>6. Warranty</h2>
+    <p>All Eco Mug products come with a 6-month warranty against manufacturing defects.</p>
+    
+    <h3>6.1 Warranty Coverage</h3>
+    <p>The warranty covers defects in materials and workmanship under normal use.</p>
+    
+    <h3>6.2 Warranty Exclusions</h3>
+    <p>The warranty does not cover damage caused by misuse, accidents, or normal wear and tear.</p>
+
+    <h2>7. Intellectual Property</h2>
+    <p>All content on this website, including text, graphics, logos, and images, is the property of Eco Mug and protected by copyright laws.</p>
+
+    <h2>8. User Accounts</h2>
+    <p>When you create an account with us, you must provide accurate and complete information.</p>
+    
+    <h3>8.1 Account Security</h3>
+    <p>You are responsible for maintaining the confidentiality of your account and password.</p>
+    
+    <h3>8.2 Account Termination</h3>
+    <p>We reserve the right to terminate accounts that violate these terms and conditions.</p>
+
+    <h2>9. Privacy</h2>
+    <p>Your privacy is important to us. Please read our Privacy Policy to understand how we collect and use your information.</p>
+
+    <h2>10. Limitation of Liability</h2>
+    <p>Eco Mug shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of our products or services.</p>
+
+    <h2>11. Changes to Terms</h2>
+    <p>We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting on the website.</p>
+
+    <h2>12. Governing Law</h2>
+    <p>These terms shall be governed by and construed in accordance with the laws of the Republic of the Philippines.</p>
+
+    <h2>13. Contact Information</h2>
+    <p>If you have any questions about these Terms and Conditions, please contact us:</p>
+    <ul>
+      <li>Email: ecomugco@gmail.com</li>
+      <li>Phone: +63 9188762434</li>
+      <li>Address: 80 Asuncion Diaz, Abella Road, San Jose Del Monte City, Central Luzon</li>
+    </ul>
+
+    <div class="highlight-box">
+      <p><strong>By using our website and purchasing our products, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions.</strong></p>
+    </div>
+
+    <a href="frontpage.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+  </div>
+
+  <div class="footer">
+    <p>© 2025 Eco Mug. All rights reserved.</p>
+  </div>
+
+  <script>
+    // DROPDOWN MENU
+    const menuToggle = document.getElementById('menu-toggle');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    menuToggle.addEventListener('click', () => dropdownMenu.classList.toggle('active'));
+    document.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !dropdownMenu.contains(e.target))
+        dropdownMenu.classList.remove('active');
+    });
+
+    // CART ICON FUNCTION
+    const cartIcon = document.getElementById("cart-icon");
+    if (cartIcon) cartIcon.addEventListener("click", () => window.location.href = "cart.html");
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem("cartDetails")) || [];
+      const uniqueItems = cart.length;
+      const cartCount = document.getElementById("cart-count");
+      if (cartCount) cartCount.textContent = uniqueItems;
+    }
+    updateCartCount();
+
+    // LOGOUT FUNCTION
+    function logout() {
+      localStorage.removeItem("currentUser");
+      localStorage.removeItem("cartDetails");
+      localStorage.setItem("logoutMessage", "You have been logged out successfully.");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
